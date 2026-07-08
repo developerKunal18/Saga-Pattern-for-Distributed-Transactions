@@ -1,0 +1,65 @@
+🧠 Why This Is Important
+
+Imagine placing an online order:
+Order Service
+      │
+      ▼
+Payment Service
+      │
+      ▼
+Inventory Service
+      │
+      ▼
+Shipping Service
+
+What happens if Inventory Service fails after Payment succeeds?
+
+Without Saga:
+✔ Payment Completed
+
+❌ Inventory Failed
+
+Money deducted 😢
+
+With Saga:
+Create Order ✔
+      │
+Charge Payment ✔
+      │
+Reserve Inventory ❌
+      │
+Compensating Action
+      ▼
+Refund Payment ✔
+Cancel Order ✔
+
+Benefits:
+	•	✅ Data consistency
+	•	✅ Automatic rollback
+	•	✅ No distributed database transactions
+	•	✅ Better scalability
+
+⸻
+
+Used By
+	•	Uber
+	•	Netflix
+	•	Amazon
+	•	Event-driven microservices
+	•	Apache Kafka workflows
+
+⸻
+
+🛠 Tech Stack
+	•	Python
+	•	Flask
+	•	Random
+
+⸻
+
+📂 Project Structure
+saga-pattern-demo/
+│
+├── app.py
+├── requirements.txt
+└── README.md
